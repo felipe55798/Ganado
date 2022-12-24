@@ -1,0 +1,27 @@
+<mat-toolbar>
+    <button class="btn-burger mobile" mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+    <div class="logo"><img src="assets/img/logo.svg" /></div>
+
+    <nav class="desktop" mat-tab-nav-bar>
+        <!-- <a
+      mat-tab-link
+      *ngFor="let link of menuLinks"
+      (click)="navigate(link)"
+      [active]="activeLink == link"
+    >
+      {{ link.name }}
+    </a> -->
+    </nav>
+
+    <div class="logout">
+        <div class="info-user">
+            <div class="name-user">
+                <span><b>{{(currentUser$ | async)?.name ?? 'Nombre de usuario'}}</b></span>
+                <a (click)="logout()">Cerrar sesión</a>
+            </div>
+        </div>
+        <div class="logo-logout"><img src="assets/img/User.svg" /></div>
+    </div>
+</mat-toolbar>

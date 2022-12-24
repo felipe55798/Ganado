@@ -1,0 +1,12 @@
+<div class="toast" *ngIf="show" [ngStyle]="{background: color? color : 'none'}">
+    <div class="content">
+        <div>
+            <mat-icon>
+                <img [src]="'../../../../assets/img/icons/'+icon" alt="">
+            </mat-icon>
+        </div>
+        <b>
+            {{ text }}
+        </b>
+    </div>
+</div>

@@ -1,0 +1,222 @@
+<form [formGroup]="form" class="formulario">
+  <app-toast
+    [color]="toast.color"
+    [text]="toast.text"
+    [icon]="toast.icon"
+    [show]="toast.show"
+  ></app-toast>
+
+  <div class="link">
+    <span (click)="goBackPage()">
+      <img src="../../../../assets/img/icons/Left.svg" alt="regresar" />
+      Volver a Gestión de Cargos
+    </span>
+  </div>
+
+  <div class="box">
+    <div class="fields">
+      <div class="col span1">
+        <div class="field">
+          <!-- <mat-label class="txt-label family-word">
+            Nombre del cargo
+          </mat-label> -->
+          <input
+            class="rounded family-barlow name"
+            placeholder=""
+            formControlName="name"
+            matInput
+            type="text"
+            [readonly]="formViewMode"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['name'].invalid && form.controls['name'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+      <div class="col span1">
+        <br />
+        <div class="field">
+          <!-- <mat-label> Código del cargo </mat-label> -->
+          <input
+            class="rounded family-word name"
+            placeholder=""
+            formControlName="code"
+            matInput
+            type="text"
+            [readonly]="formViewMode"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['code'].invalid && form.controls['code'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+    </div>
+
+    <div class="links">
+      <div class="icons">
+        <div class="link" *ngIf="formViewMode">
+          <span (click)="editMode()">
+            <img src="../../../../assets/img/icons/Edit.svg" alt="" />
+            Editar
+          </span>
+        </div>
+
+        <div class="link" *ngIf="formEditMode">
+          <span (click)="editCharge()">
+            <img src="../../../../assets/img/icons/Done.svg" alt="" />
+            Guardar
+          </span>
+        </div>
+
+        <button
+          *ngIf="formEditMode"
+          mat-icon-button
+          aria-label="Eliminar"
+          (click)="deleteCharge()"
+        >
+          <img src="../../../../assets/img/icons/delete.svg" alt="" />
+        </button>
+
+        <button
+          *ngIf="formEditMode"
+          mat-icon-button
+          aria-label="Cancelar"
+          (click)="viewMode()"
+        >
+          <img src="../../../../assets/img/icons/Cancel.svg" alt="" />
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="inputs">
+    <div class="col span1">
+      <mat-form-field appearance="standard" class="family-word">
+        <mat-label> Visitas por día</mat-label>
+        <input
+          placeholder=""
+          formControlName="visitsperday"
+          matInput
+          type="number"
+          [readonly]="formViewMode"
+        />
+        <mat-error *ngIf="form.controls['visitsperday'].invalid">
+          Campo inválido.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col span1">
+      <mat-form-field appearance="standard" class="family-word">
+        <mat-label>Máximo visitas por día</mat-label>
+        <input
+          placeholder=""
+          formControlName="maxvisitsperday"
+          matInput
+          type="number"
+          [readonly]="formViewMode"
+        />
+        <mat-error *ngIf="form.controls['maxvisitsperday'].invalid">
+          Campo inválido.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col span1">
+      <mat-form-field appearance="standard" class="family-word">
+        <mat-label>Tiempo en POC</mat-label>
+        <input
+          placeholder=""
+          formControlName="poctime"
+          matInput
+          type="number"
+          [readonly]="formViewMode"
+        />
+        <mat-error *ngIf="form.controls['poctime'].invalid">
+          Campo inválido.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col span1">
+      <mat-form-field appearance="standard" class="family-word">
+        <mat-label>Días por semana</mat-label>
+        <input
+          placeholder=""
+          formControlName="daysperweek"
+          matInput
+          type="number"
+          [readonly]="formViewMode"
+        />
+        <mat-error *ngIf="form.controls['daysperweek'].invalid">
+          Campo inválido.
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col span1">
+      <!-- <mat-form-field appearance="standard" class="family-word">
+        <mat-label>Tipo de zona</mat-label>
+        <input
+          placeholder=""
+          formControlName="zonetypeid"
+          matInput
+          type="number"
+          [readonly]="formViewMode"
+        />
+        <mat-error *ngIf="form.controls['zonetypeid'].invalid">
+          Campo inválido.
+        </mat-error>
+      </mat-form-field> -->
+
+      <mat-form-field appearance="standard">
+        <mat-label>Tipo de zona</mat-label>
+        <mat-select formControlName="zonetypeId" [disabled]="formViewMode">
+          <mat-option
+            *ngFor="let zone of zoneTypes"
+            [value]="zone.id"
+            >{{ zone.name }}</mat-option
+          >
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+<!-- {{ form.value | json}} -->
+  <div class="combinations">
+    <br />
+    <b>Combinaciones del cargo</b>
+    <br /><br />
+    <div *ngFor="let combination of combinations; let combIndex = index">
+      <app-combination
+        *ngIf="combinations.length > 0"
+        [combination]="combination"
+        [indexCombination]="combIndex"
+        [idChargeDad]="charge.id"
+        (outCombinationDeleted)="deleteCombination($event)"
+      >
+      </app-combination>
+      <br />
+    </div>
+  </div>
+
+  <div class="center">
+    <button
+      class="catalog"
+      mat-button
+      (click)="addCombination()"
+      [disabled]="formViewMode"
+    >
+      <mat-icon>add_circle</mat-icon>
+      Añadir Combinación
+    </button>
+  </div>
+</form>

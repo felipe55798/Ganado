@@ -1,0 +1,53 @@
+.box {
+  display: grid;
+  grid-gap: 40px;
+  grid-row-gap: 15px;
+  grid-template-columns: 1fr;
+
+  .full {
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+  .formControl {
+    width: 100%;
+    display: block;
+  }
+  .mat-form-field {
+    width: 100%;
+    display: block;
+  }
+  .box-file{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    b{
+      display: flex;
+      align-items: center;
+    }
+  }
+  .col{
+    width: 100%;
+    display: block;
+    span{
+      font-size: 14px;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 14px;
+      line-height: 16px;
+    }
+  }
+}
+.mat-dialog-actions{
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+}
+
+input,textarea{
+  width: 100%;
+  display: block;
+}
+.black{
+  color: #000000;
+  font-weight: 550;
+}

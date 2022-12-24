@@ -1,0 +1,128 @@
+<form [formGroup]="form" class="formulario">
+  <div class="box">
+    <h3>
+      <b>{{ formInsertMode ? "Nuevo " : "" }} Catálago</b>
+    </h3>
+    <div class="col span1">
+      <div class="input">
+        <mat-label class="txt-label family-word">
+          Nombre del catálogo
+        </mat-label>
+        <input
+          class="rounded family-word"
+          placeholder=""
+          formControlName="name"
+          matInput
+          type="text"
+        />
+        <div
+          class="txt-label family-word error"
+          *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+        >
+          Campo inválido.
+        </div>
+      </div>
+    </div>
+    <div class="col span1">
+      <div appearance="outline">
+        <mat-label class="txt-label family-word">
+          Columna del archivo
+        </mat-label>
+        <input
+          class="rounded family-word"
+          placeholder=""
+          formControlName="column"
+          matInput
+          type="text"
+        />
+        <span>
+          La columna del archivo debe escribirse exactamente igual
+           al del campo al que está asociado.
+        </span>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['column'].invalid && form.controls['column'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+    </div>
+    <div class="col span1">
+      <div appearance="outline" class="formControl">
+        <mat-label class="txt-label family-word"> Descripción </mat-label>
+        <textarea
+          class="rounded family-word"
+          placeholder=""
+          formControlName="description"
+          matInput
+          maxlength="500"
+          type="text"
+          [rows]="4"
+        ></textarea>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['description'].invalid &&
+            form.controls['description'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+    </div>
+    <!-- File chooser -->
+    <div class="file">
+      <div class="box-file">
+        <b *ngIf="!form.controls['csvFile'].errors && selectedFile !== {}">
+          {{ selectedFile?.name ?? "" }}
+        </b>
+        <mat-icon
+          *ngIf="!form.controls['csvFile'].errors && selectedFile !== {}"
+          (click)="deleteNameFileSelected()"
+        >
+          <img src="../../../../assets/img/icons/delete.svg" alt="" />
+        </mat-icon>
+        <app-file-chooser
+          insertMode="true"
+          accept=".csv"
+          (files)="getCSV($event)"
+          [limpiar]="cleanFiles"
+          [title]="'Adjuntar archivo de catálogo'"
+        ></app-file-chooser>
+      </div>
+
+      <mat-hint *ngIf="form.controls['csvFile'].hasError('extension')">
+        <span class="mat-error tamano-error hint-error">
+          {{ form.controls["csvFile"].getError("extension") }}
+        </span>
+      </mat-hint>
+      <mat-hint
+        *ngIf="form.controls['csvFile'].hasError('columnasIncorrectas')"
+      >
+        <span class="mat-error tamano-error hint-error">
+          {{ form.controls["csvFile"].getError("columnasIncorrectas") }}
+        </span>
+      </mat-hint>
+      <mat-hint
+        *ngIf="
+          (form.controls['csvFile'].invalid &&
+            form.controls['csvFile'].touched) ||
+          form.controls['csvFile'].getError('validations')?.length > 0
+        "
+      >
+        <span class="mat-error tamano-error hint-error">
+          Debe seleccionar un archivo válido.
+        </span>
+      </mat-hint>
+
+      <br />
+    </div>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()" class="black">CANCELAR</button>
+    <button mat-raised-button class="bg-black" (click)="save()">CREAR</button>
+  </div>
+</form>

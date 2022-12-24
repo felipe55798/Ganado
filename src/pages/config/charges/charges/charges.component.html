@@ -1,0 +1,35 @@
+<div>
+  <app-list [indexMenuSelected]="1"></app-list>
+</div>
+<div class="box-content">
+  <mat-card *ngFor="let charge of charges">
+    <mat-card-title>
+      <h4>{{ charge.code }}</h4>
+    </mat-card-title>
+    <mat-card-title>
+      <h4>{{ charge.name }}</h4>
+      <button mat-button (click)="goToEditCharge(charge)">
+        <mat-icon aria-hidden="false" aria-label="Edit catalog">edit</mat-icon>
+      </button>
+    </mat-card-title>
+    <!-- <mat-card-subtitle>{{ charge.column }}</mat-card-subtitle> -->
+    <mat-card-content>
+      <p class="bg-gray size-font">
+        Última modificación el: 23/12/2021 a las 18:29"
+      </p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="box-add-card">
+    <mat-card class="add-card">
+      <mat-card-title>
+        <h4>Crear nuevo cargo</h4>
+        <button mat-button (click)="createCharge()">
+          <mat-icon aria-hidden="false" aria-label="Edit catalog"
+            >add_circle</mat-icon
+          >
+        </button>
+      </mat-card-title>
+    </mat-card>
+  </div>
+</div>

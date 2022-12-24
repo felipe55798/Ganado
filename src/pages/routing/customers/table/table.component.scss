@@ -1,0 +1,271 @@
+.table {
+  max-height: 220px;
+  overflow-y: auto;
+  border-radius: 10px !important;
+}
+
+:host ::ng-deep table th {
+  color: #7c7c7c !important;
+  align-items: center;
+}
+
+:host ::ng-deep table a {
+  color: #7c7c7c !important;
+  align-items: center;
+}
+
+:host ::ng-deep a {
+  padding: 0.5rem;
+}
+
+:host ::ng-deep table td {
+  text-align: center;
+
+  &::hover {
+    background: #fff;
+    color: #000;
+  }
+}
+
+:host ::ng-deep table .input-filter {
+  text-align: center;
+  border-radius: 10px;
+}
+
+:host ::ng-deep .mat-tab-header {
+  top: 0; //To fix the tab header position and scroll behavior
+  z-index: 30;
+  position: sticky;
+  position: -webkit-sticky; /* macOS/iOS Safari */
+  background-color: #fff;
+}
+
+.mat-tab-body.mat-tab-body-active {
+  overflow: hidden;
+}
+:host ::ng-deep .ui-datatable .ui-datatable-data tr{
+  height : 100px;
+}
+
+.badge {
+  background-color: #ff0000;
+  color: #fff;
+  padding: 5px 25px;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: 0.5rem;
+}
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  text-align: center;
+  padding: 0.5rem;
+  border-width: 0 0 1px 0;
+  font-weight: 600;
+  color: #495057;
+  background: #F2F2F2;
+  transition: box-shadow 0.2s;
+  
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  text-align: center;
+  border: 2px solid #ffffff;
+  border-width: 0 0 1px 0;
+  padding: 0.5rem;
+  width: auto;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tfoot > tr > td{
+  background: #F2F2F2;
+  border-bottom: none;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-tbody > tr > td {
+  text-align: center;
+  border: 1px solid #e9ecef;
+  border-width: 0 0 1px 0;
+  padding: 0.5rem;
+  //min-width: 150px;
+  width: auto;
+}
+
+:host ::ng-deep .p-datatable .p-datatable-header {
+  background: #F2F2F2;
+  color: #495057;
+  border: 1px solid #e9ecef;
+  border-width: 1px 0 1px 0;
+  padding: 0.2rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+
+}
+
+:host ::ng-deep .p-datatable .p-datatable-footer {
+  background: #F2F2F2;
+  color: #495057;
+  border: 1px solid #e9ecef;
+  border-width: 1px 0 1px 0;
+  padding: 0.5rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+:host ::ng-deep .p-datatable table tr:nth-child(even){background-color: #f2f2f2;}
+:host ::ng-deep .p-datatable table{
+  border-radius: 2rem !important;
+  margin-top: 0.5rem;
+  border-radius: 10px !important;
+    border: 2px solid #F2F2F2;
+  border-collapse: inherit;
+  background-color: #F2F2F2;
+  border-spacing: inherit;
+}
+
+:host ::ng-deep .mat-tab-list {
+  height: 55px;
+}
+
+:host ::ng-deep .p-column-filter-buttonbar .p-button {
+  width: auto;
+  background-color: #000;
+  color:#fff;
+}
+
+:host ::ng-deep table{
+  overflow-x: scroll;
+  border-radius: 10px !important;
+  //border-collapse: separate !important;
+  //aborder-top-left-radius: 10px !important;
+  //width: 100%;
+}
+
+:host ::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+  /* border-radius: 4px 4px 0 0; */
+  padding: 0.2rem 0.8rem;
+  background-color: transparent;
+  /* height: 51px; */
+  /* top: 0px; */
+}
+
+
+:host ::ng-deep .mat-tab-label .mat-tab-label-content {&:hover{
+  color:#ffb042;
+}
+:focus{
+  color:#ffb042;
+}
+}
+
+.tableBorder{ border: 1.7px solid #dcdadad6; border-radius: 7px !important; }
+
+.filter-input {
+  border: none;
+  border-bottom: 3px solid #000;
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+
+  &::hover {
+    color: #000;
+  }
+
+}
+
+.filter-icon {
+  color: #000;
+}
+
+
+:host ::ng-deep .p-datatable .p-datatable-thead > tr > th {
+  //min-width: 150px;
+  //padding: 2px;
+}
+
+
+
+.p-table .ui-table-tbody > tr:not(.ui-state-highlight):not(.ui-contextmenu-selected) {
+  background-color:orange !important;
+}
+
+.p-table .ui-table .ui-table-tbody > tr.ui-state-highlight {
+  background-color:green !important;
+  color: #ffffff;
+}
+
+:host ::ng-deep .mat-ink-bar {
+  background-color: #ffb042 !important;
+  height: 5px !important;
+}
+
+:host ::ng-deep .ui-table .ui-table-tbody > tr > td { border: 1px solid #dadada; }
+
+.global-filter {
+  position: absolute;
+  right: 4rem;
+  z-index: 40;
+  top: 0.5rem;
+}
+
+.fa-caret-down:before {
+  content: "\f002";
+}
+
+.p-inputtext {
+  &:focus {
+    outline: none; border: none;
+  }
+ 
+}
+
+.pi .pi-filter-icon {
+  font-size: 1.5rem;
+  color: red;
+}
+
+.col-btn {
+  width: auto;
+  background-color: transparent;
+  color:#495057;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 2rem;
+
+  &:hover {
+    background-color: #f8f9fa;
+    color: #000;
+  }
+
+
+}
+
+table {
+  width: 100%;
+  border: none;
+  height: 250px;
+  overflow: auto;
+  border-radius: 10px !important;
+
+  tbody tr {
+    padding: 0.8rem;
+    &:hover {
+      background: #fff;
+      color: #000;
+      transition: 0.5s ease;
+    }
+  }
+}
+@media screen and (max-width: 600px) {
+  .global-filter {
+    padding: 1rem;
+    position: relative;
+    margin: 1rem 4.5rem;
+    width: 100%;
+  }
+
+  :host ::ng-deep table{
+    overflow-x: none;
+    border-radius: 10px !important;
+  }
+}

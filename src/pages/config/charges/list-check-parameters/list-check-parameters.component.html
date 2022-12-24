@@ -1,0 +1,27 @@
+<form [formGroup]="form" class="formulario">
+    <p mat-dialog-title>Parámetros disponibles para combinación </p>
+    <mat-dialog-content>
+        <div class="catalogs" >
+          <div *ngFor="let param of allParameters; let i = index" formArrayName="parameters">
+            <div class="box-check">
+              <br>
+              <mat-checkbox 
+                class="family-word"
+                [color]="'primary'" [formControlName]="i">
+                <p>
+                  {{ param.name }}
+                </p>
+                <p>
+                  {{ param.description }}
+                </p>
+              </mat-checkbox>
+            </div>
+            <hr>
+          </div>
+        </div>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button class="black" mat-button (click)="closeDialog()">CANCELAR</button>
+        <button mat-raised-button class="bg-black" (click)="save()">AÑADIR</button>
+    </mat-dialog-actions>
+</form>

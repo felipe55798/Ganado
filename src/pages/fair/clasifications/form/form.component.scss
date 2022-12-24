@@ -1,0 +1,65 @@
+::ng-deep.mat-dialog-container {
+    .container {
+        display: grid;
+        grid-gap: 15px;
+        grid-row-gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+
+        .full {
+            grid-column-start: 1;
+            grid-column-end: -1;
+        }
+
+        .span2 {
+            grid-column: span 2;
+            width: 100%;
+            display: block;
+            // border:solid red;
+        }
+
+        .formControl {
+            width: 100%;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            display: block;
+        }
+
+        .mat-form-field {
+            width: 100%;
+            display: block;
+        }
+
+        .box-file {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+
+            b {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 960px) {
+    .container {
+        .span1 {
+            grid-column: span 2;
+            width: 100%;
+            display: block;
+        }
+    }
+}
+
+textarea {
+    width: 100%;
+}

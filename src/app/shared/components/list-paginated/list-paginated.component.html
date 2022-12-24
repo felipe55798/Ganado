@@ -1,0 +1,27 @@
+<div class="container">
+  <mat-icon class="icon-add" (click)="createRegister()">add</mat-icon>
+  <mat-icon class="arrow-top">expand_less</mat-icon>
+  <div *ngFor="let pen of list; index as i">
+    <div class="box-item">
+      <p>{{ i + 1 }}. {{ pen.name }}</p>
+      <div>
+        <mat-icon aria-label="Editar" (click)="updateRegister(pen)"
+          >edit_square</mat-icon
+        >
+        <mat-icon aria-label="Eliminar" (click)="deleteRegister(pen)"
+          >delete</mat-icon
+        >
+      </div>
+    </div>
+    <!-- <hr> -->
+  </div>
+  <div *ngIf="list.length === 0">
+    <h3>No hay registros en la página actual.</h3>
+  </div>
+  <mat-icon class="arrow-bottom">expand_more</mat-icon>
+  <p-paginator
+    [rows]="10"
+    [totalRecords]="totalRecords"
+    (onPageChange)="searchPaginate($event)"
+  ></p-paginator>
+</div>

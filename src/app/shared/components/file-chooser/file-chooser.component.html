@@ -1,0 +1,24 @@
+<form>
+    <div class="actions">
+      <button
+        type="button"
+        mat-button
+        class="seleccionar"
+        (click)="ref.click()"
+      >
+      <mat-icon>
+        <img src="../../../../assets/img/icons/Upload.svg" alt="">
+      </mat-icon>
+        {{title}}
+      </button>
+      <input
+      style="display: none"
+      type="file"
+      [accept]="accept"
+      #ref
+      (change)="emitirArchivo($event)"
+      name="emitirArchivo"
+    />
+    </div>
+
+</form>

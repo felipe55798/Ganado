@@ -1,0 +1,77 @@
+::ng-deep.mat-dialog-container{
+    height: 500px;
+    .container {
+      display: grid;
+      grid-gap: 15px;
+      grid-row-gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    
+      .full {
+        grid-column-start: 1;
+        grid-column-end: -1;
+      }
+      .span2 {
+        grid-column: span 2;
+        width: 100%;
+        display: block;
+        // border:solid red;
+      }
+      .formControl {
+        width: 100%;
+        display: block;
+      }
+      input{
+        width: 100%;
+        display: block;
+      }
+      .mat-form-field {
+        width: 100%;
+        display: block;
+      }
+      .box-file {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        b {
+          display: flex;
+          align-items: center;
+        }
+      }
+
+       input{
+        box-sizing: border-box;
+        border: 1px solid #707070;
+        border-radius: 13px;
+        opacity: 1;
+        min-height: 38px;
+        max-height: auto;
+        padding: 3px !important;
+      }
+      .p-calendar .p-datepicker{
+        max-height: 346px;
+        padding: 0px;
+        line-height: 0px;
+      }
+      .p-datepicker table td{
+        padding: 0px;
+      }
+    }
+    .actions{
+      display: flex;
+      padding-top: 10px;
+      justify-content: center;
+      .mat-raised-button{
+        font-size: 1.2rem;
+      }
+    }
+    .rounded {
+        box-sizing: border-box;
+        border: 1px solid #707070;
+        border-radius: 13px;
+        opacity: 1;
+        min-height: 38px;
+        max-height: auto;
+        padding: 3px !important;
+    }
+}
+

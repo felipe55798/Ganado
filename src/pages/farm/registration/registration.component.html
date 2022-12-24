@@ -1,0 +1,196 @@
+<form [formGroup]="form" class="formulario">
+  <div class="px-4 py-5 md:px-6 lg:px-8 text-center">
+    <div class="px-4 md:px-6 lg:px-8">
+        <div class="grid p-fluid">
+            <div class="col-12 md:col-6">
+                <div class="row">
+                    <label for="name">Departamento</label>
+                </div>
+                <div class="row">
+                  <div class="rounded family-word">
+                    <mat-select formControlName="fkDepartment">
+                      <mat-option *ngFor="let dep of stateList" [value]="dep.id">{{
+                        dep.name
+                      }}</mat-option>
+                    </mat-select>
+                  </div>
+                  <div
+                    class="txt-label family-word error"
+                    *ngIf="
+                      form.controls['fkDepartment'].invalid &&
+                      form.controls['fkDepartment'].touched
+                    "
+                  >
+                    Campo inválido.
+                  </div>
+                </div>
+            </div>
+            <div class="col-12 md:col-6">
+              <div class="row">
+                  <label for="name">Municipio</label>
+              </div>
+              <div class="row">
+                <div class="rounded family-word">
+                  <mat-select formControlName="fkTown">
+                    <mat-option *ngFor="let town of cityList" [value]="town.id">{{
+                      town.name
+                    }}</mat-option>
+                  </mat-select>
+                </div>
+                <div
+                  class="txt-label family-word error"
+                  *ngIf="
+                    form.controls['fkTown'].invalid &&
+                    form.controls['fkTown'].touched
+                  "
+                >
+                  Campo inválido.
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-12">
+              <div class="row">
+                  <label for="name">Feria</label>
+              </div>
+              <div class="row">
+                <div class="rounded family-word">
+                  <mat-select formControlName="fkFair">
+                    <mat-option *ngFor="let fair of fairList" [value]="fair.id">{{
+                      fair.name
+                    }}</mat-option>
+                  </mat-select>
+                </div>
+                <div
+                  class="txt-label family-word error"
+                  *ngIf="
+                    form.controls['fkFair'].invalid &&
+                    form.controls['fkFair'].touched
+                  "
+                >
+                  Campo inválido.
+                </div>
+              </div>
+            </div>
+            <div class="col-12 md:col-12">
+              <mat-radio-group formControlName="auctionOrEvent">
+                <mat-radio-button class="example-margin" value="1"><label>Subasta</label></mat-radio-button>
+                <mat-radio-button class="example-margin" value="2"><label >Evento</label></mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div *ngIf="showCalendar" class="col-12 md:col-12">
+              <app-calendar 
+                [eventos]="eventsFairSelected"
+                (eventoSeleccionado)="form.controls['dateSelected'].setValue($event)"
+              ></app-calendar>
+            </div>
+            <div *ngIf="showCalendar" class="col-12 md:col-12">
+              <mat-radio-group formControlName="corralOrStand">
+                <mat-radio-button class="example-margin" value="1"><label>Corral</label></mat-radio-button>
+                <mat-radio-button class="example-margin" value="2"><label >Stand</label></mat-radio-button>
+              </mat-radio-group>
+            </div>
+            <div *ngIf="showCalendar" [ngClass]="form.controls['auctionOrEvent'].value === '1' ? 'col-12 md:col-12': 'col-12 md:col-6'">
+              <div class="row">
+                  <label for="name">Corral</label>
+              </div>
+              <div class="row">
+                <div class="rounded family-word">
+                  <mat-select formControlName="fkPen">
+                    <mat-option *ngFor="let pen of penList" [value]="pen.id">{{
+                      pen.name
+                    }}</mat-option>
+                  </mat-select>
+                </div>
+                <div
+                  class="txt-label family-word error"
+                  *ngIf="
+                    form.controls['fkPen'].invalid &&
+                    form.controls['fkPen'].touched
+                  "
+                >
+                  Campo inválido.
+                </div>
+              </div>
+            </div>
+            <div *ngIf="showCalendar && form.controls['auctionOrEvent'].value === '2'" class="col-12 md:col-6">
+              <div class="row">
+                  <label for="name">Stand</label>
+              </div>
+              <div class="row">
+                <div class="rounded family-word">
+                  <mat-select formControlName="fkStand">
+                    <mat-option *ngFor="let stand of standList" [value]="stand.id">{{
+                      stand.name
+                    }}</mat-option>
+                  </mat-select>
+                </div>
+                <div
+                  class="txt-label family-word error"
+                  *ngIf="
+                    form.controls['fkStand'].invalid &&
+                    form.controls['fkStand'].touched
+                  "
+                >
+                  Campo inválido.
+                </div>
+              </div>
+            </div>
+            <div *ngIf="showCalendar && form.controls['auctionOrEvent'].value === '2'" class="col-12 md:col-12">
+              <div class="row">
+                  <label for="name">Ganado</label>
+              </div>
+              <div class="row">
+                <div class="rounded family-word">
+                  <mat-select formControlName="fkCattle">
+                    <mat-option *ngFor="let cattle of cattleList" [value]="cattle.id">{{
+                      cattle.name
+                    }}</mat-option>
+                  </mat-select>
+                </div>
+                <div
+                  class="txt-label family-word error"
+                  *ngIf="
+                    form.controls['fkCattle'].invalid &&
+                    form.controls['fkCattle'].touched
+                  "
+                >
+                  Campo inválido.
+                </div>
+              </div>
+            </div>
+            <div *ngIf="showCalendar && form.controls['auctionOrEvent'].value === '1'" class="col-12 md:col-12">
+              <div class="row">
+                  <label for="name">Lote</label>
+              </div>
+              <div class="row">
+                <div class="rounded family-word">
+                  <mat-select formControlName="fkLote">
+                    <mat-option *ngFor="let lote of loteList" [value]="lote.id">{{
+                      lote.description
+                    }}</mat-option>
+                  </mat-select>
+                </div>
+                <div
+                  class="txt-label family-word error"
+                  *ngIf="
+                    form.controls['fkLote'].invalid &&
+                    form.controls['fkLote'].touched
+                  "
+                >
+                  Campo inválido.
+                </div>
+              </div>
+            </div>
+            <div *ngIf="showCalendar" class="col-12 md:col-12">
+                <div class="row">
+                  <button mat-raised-button class="p-button" (click)="inscribirse()">
+                    <label style="font-size: 1.2rem">
+                      Inscribirse
+                    </label>
+                  </button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</form>

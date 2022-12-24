@@ -1,0 +1,38 @@
+<div>
+  <app-list
+  [indexMenuSelected]="0"></app-list>
+</div>
+<div class="box-content">
+  <mat-card *ngFor="let catalog of catalogs">
+    <mat-card-title>
+      <h4>{{ catalog.name }}</h4>
+      <button mat-button (click)="editCatalog(catalog)">
+        <mat-icon aria-hidden="false" aria-label="Edit catalog">edit</mat-icon>
+      </button>
+    </mat-card-title>
+    <mat-card-subtitle >
+      <p class="bg-gray size-font">
+        Parámetro asociado:
+        <span class="black">
+          {{ catalog.column }}
+        </span>
+      </p>
+    </mat-card-subtitle>
+    <mat-card-content>
+      <p class="description family-barlow">{{ catalog.description }}</p>
+    </mat-card-content>
+  </mat-card>
+
+  <div class="box-add-card">
+    <mat-card class="add-card">
+      <mat-card-title>
+        <h6>Crear nuevo parámetro</h6>
+        <button mat-button (click)="createCatalog()">
+          <mat-icon aria-hidden="false" aria-label="Edit catalog"
+            >add_circle</mat-icon
+          >
+        </button>
+      </mat-card-title>
+    </mat-card>
+  </div>
+</div>

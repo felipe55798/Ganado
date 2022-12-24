@@ -1,0 +1,58 @@
+<form [formGroup]="form" class="form custom-form">
+    <div class="container">
+        <app-toast [color]="toast.color" [text]="toast.text" [icon]="toast.icon" [show]="toast.show"></app-toast>
+        <div class="box-logo">
+            <img src="assets/img/logo.png" alt="bovinusID" />
+        </div>
+        <div class="fields">
+            <div>
+                <mat-label class="txt-label family-word">Correo electrónico</mat-label>
+                <div class="field">
+                    <input class="family-word" placeholder="" formControlName="email" type="text" />
+                </div>
+                <mat-error class="txt-label family-word error" *ngIf="
+            form.controls['email'].invalid && form.controls['email'].touched
+          ">
+                    Campo inválido.
+                </mat-error>
+            </div>
+            <div>
+                <mat-label class="txt-label family-word">Contraseña</mat-label>
+                <div class="field">
+                    <input class="family-word" placeholder="" formControlName="password" [type]="fieldTextType ? 'text' : 'password'" />
+                    <img (click)="toggleFieldTextType()" [src]="
+              fieldTextType
+                ? '../../../assets/img/icons/eye_close.svg'
+                : '../../../assets/img/icons/eye.svg'
+            " alt="" />
+                </div>
+                <mat-error class="txt-label family-word error" *ngIf="form.controls['password'].hasError('pattern')">
+                    La contraseña debe tener al menos una letra mayúscula, una minúscula, un número y un caracter especial.
+                </mat-error>
+                <mat-error class="txt-label family-word error" *ngIf="
+            form.controls['password'].hasError('min') ||
+            (form.controls['password'].hasError('required') &&
+              form.controls['password'].touched)
+          ">
+                    Requeridos mínimo 8 caracteres.
+                </mat-error>
+            </div>
+
+            <div class="links">
+                <div class="link">
+                    <span (click)="resetPassword()"> ¿Olvidaste tú contraseña? </span>
+                </div>
+                <mat-checkbox class="family-word link" [color]="'primary'" formControlName="remenber">Recordarme</mat-checkbox>
+            </div>
+            <div class="btn-login">
+                <button mat-raised-button p-button class="p-button" (click)="login()" [disabled]="form.invalid">
+          Iniciar Sesion
+        </button>
+            </div>
+            <!--<div class="register links">
+                <h5 class="text-left">¿No tienes cuenta?</h5>
+                <a class="text-right" href="">Registrarse</a>
+            </div>-->
+        </div>
+    </div>
+</form>

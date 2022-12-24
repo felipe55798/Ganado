@@ -1,0 +1,28 @@
+ip: 104.197.212.78
+InstanceId: hiveway-sandbox
+database: hiveway
+user: postgres
+pass: 0fNivyws8pOyDKlG
+
+
+--deploy
+
+docker build -t bovinusid:bovinusid .
+docker run --detach -p 8080:8080 bovinusid:bovinusid
+
+docker tag bovinusid:bovinusid bovinusiddashboard.azurecr.io/bovinusid
+docker push bovinusiddashboard.azurecr.io/bovinusid
+
+gcloud auth configure-docker southamerica-east1-docker.pkg.dev
+
+southamerica-east1-docker.pkg.dev/hiveway-routes-ab-inbev/hiveway-sandbox/hiveway-fronted
+
+docker tag hiveway:hiveway southamerica-east1-docker.pkg.dev/hiveway-routes-ab-inbev/hiveway-sandbox/hiveway-fronted
+
+docker push southamerica-east1-docker.pkg.dev/hiveway-routes-ab-inbev/hiveway-sandbox/hiveway-fronted
+
+
+
+docker tag sonarqube:latest northamerica-northeast1-docker.pkg.dev/tres-astronautas/sonarqube/sonar
+
+docker push northamerica-northeast1-docker.pkg.dev/tres-astronautas/sonarqube/sonar

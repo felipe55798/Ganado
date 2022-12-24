@@ -1,0 +1,60 @@
+
+.header {
+  .title {
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+  // padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.body {
+  padding: 15px;
+  .content-body{
+    // font: normal normal bold 40px/44px Comfortaa;
+    font-family: 'Comfortaa';
+    font-size: 1.3rem;
+    img{
+      max-width: 100%;
+      width: 100px;
+    }
+    text-align: center;
+  }
+  .actions {
+    text-align: center;
+  }
+  button:last-child {
+    margin-left: 10px;
+  }
+  .content {
+    word-wrap: break-word;
+  }
+}
+
+::ng-deep button {
+  font-size: 1.2rem;
+  mat-icon {
+    font-weight: bold !important;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .body {
+    padding: 15px;
+  }
+}
+
+.actions {
+  position: sticky;
+  bottom: 0px;
+  padding: 10px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  ::ng-deep button{
+    font-size: 1.2rem;
+  }
+}

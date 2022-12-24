@@ -1,0 +1,10 @@
+<form [formGroup]="form" class="formulario">
+  <div class="box" *ngFor="let col of hiddenCols">
+          <mat-checkbox id="{{col.field}}" [checked]="col.checked" (change)="onChange($event)">{{col.header}}</mat-checkbox>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">CANCELAR</button>
+    <button mat-raised-button color="primary" (click)="save()">CREAR</button>
+  </div>
+</form>

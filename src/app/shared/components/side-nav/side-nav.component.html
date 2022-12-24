@@ -1,0 +1,18 @@
+<mat-toolbar>
+    <div class="logo"><img src="assets/img/logo.svg"></div>
+    <span class="spacer"></span>
+    <button mat-icon-button
+            (click)="sidenav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+  <mat-nav-list>
+    <a *ngFor="let menu of menuLinks" [routerLink]="menu.route"
+       mat-list-item
+       (click)="sidenav.toggle()"
+       (click)="navigate(menu)">
+      <mat-icon mat-list-icon>{{menu.icon}}</mat-icon>
+      <span>{{menu.name}}</span>
+    </a>
+  </mat-nav-list>
+  

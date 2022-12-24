@@ -1,0 +1,20 @@
+.mat-toolbar-row, .mat-toolbar-single-row{
+    background-color: var(--background-gray-color);
+  }
+  .logo{
+    max-width: 150px;
+    padding: 5px;
+    height: 100%;
+    img{
+      height: 80%;
+      max-width: 100%;
+    }
+  }
+  .mat-nav-list{
+    .mat-list-item{
+      color: #000000;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+  }
+  

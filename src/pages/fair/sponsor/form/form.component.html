@@ -1,0 +1,147 @@
+<form [formGroup]="form" class="formulario">
+    <button
+    mat-mini-fab
+    aria-label="Example icon button with a home icon"
+    class="bg-black"
+    (click)="closeDialog()"
+  >
+    <mat-icon
+      ><span class="material-symbols-outlined"> arrow_back </span></mat-icon
+    >
+  </button>
+  <mat-dialog-content>
+    <div class="container">
+      <div class="col span1">
+        <div>
+            <mat-label class="txt-label family-word"> Nombres </mat-label>
+            <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="name"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['name'].invalid && form.controls['name'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+            <mat-label class="txt-label family-word"> Apellidos </mat-label>
+            <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="lastName"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['lastName'].invalid && form.controls['lastName'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word">Tipo de documento</mat-label>
+            <div class="rounded family-word">
+              <mat-select formControlName="fkDocumentTypePerson">
+                <mat-option *ngFor="let docType of documentTypeList" [value]="docType.id">{{
+                  docType.name
+                }}</mat-option>
+              </mat-select>
+            </div>
+            <div
+              class="txt-label family-word error"
+              *ngIf="
+                form.controls['fkDocumentTypePerson'].invalid &&
+                form.controls['fkDocumentTypePerson'].touched
+              "
+            >
+              Campo inválido.
+            </div>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+            <mat-label class="txt-label family-word"> Número de documento </mat-label>
+            <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="documentNumber"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['documentNumber'].invalid && form.controls['documentNumber'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+      <div class="col span2">
+        <div>
+            <mat-label class="txt-label family-word"> Dirección </mat-label>
+            <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="address"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['address'].invalid && form.controls['address'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+      <div class="col span2">
+        <div>
+          <mat-label class="txt-label family-word">Correo electrónico</mat-label>
+          <input
+            class="rounded"
+            placeholder=""
+            formControlName="email"
+            matInput
+            type="email"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['email'].invalid &&
+              form.controls['email'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <div class="actions">
+    <br />
+    <button class="bg-black btn-primary" (click)="save()">
+      {{formInsertMode ? "Crear clasificación" : "Editar clasificación"}}
+    </button>
+  </div>
+  <br />
+</form>

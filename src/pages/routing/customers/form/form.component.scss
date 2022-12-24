@@ -1,0 +1,47 @@
+.box {
+  display: flex;
+  grid-gap: 40px;
+  grid-row-gap: 15px;
+  grid-template-columns: 1fr;
+
+  .full {
+    grid-column-start: 1;
+    grid-column-end: -1;
+  }
+  .formControl {
+    width: 100%;
+    display: block;
+  }
+  .mat-form-field {
+    width: 100%;
+    display: block;
+  }
+  .box-file{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    b{
+      display: flex;
+      align-items: center;
+    }
+  }
+}
+
+table {
+  width: 100%;
+
+  td {
+    //padding: 0.5rem;
+  }
+}
+
+
+:host ::ng-deep .mat-dialog-container{
+  width: 200px !important
+}
+
+.mat-dialog-actions{
+    display: flex;
+    justify-content: right;
+    gap: 20px;
+}

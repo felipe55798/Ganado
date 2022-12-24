@@ -1,0 +1,45 @@
+.box-content{
+    padding: 1% 6%;
+    display: grid;
+    grid-gap: 40px;
+    grid-row-gap: 15px;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    .mat-card{
+        background-color: var(--background-gray-color);
+        .mat-card-title{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            h4{
+                margin: auto 0;
+                font-weight: 900;
+                font-size: 1.2rem;
+            }
+        }
+    }
+    .box-add-card{
+        padding: 0 0 10% 0;
+    }
+}
+.bg-gray{
+    color: var(--gray-dark);
+}
+.black{
+    color: #000000;
+    font-weight: 700;
+}
+.size-font{
+    font-size: 11px;
+}
+.description{
+    font-size: 1rem;
+    color: #000000;
+    font-weight: 500;
+}
+@media screen and (max-width: 960px) {
+    .box-content{
+        .add-card{
+            height: 100%;
+        }
+    }
+}

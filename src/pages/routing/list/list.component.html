@@ -1,0 +1,19 @@
+<div class="box-content">
+  <div class="head"> 
+    <h1>Gestión de Parámetros</h1>
+    <nav class="desktop" mat-tab-nav-bar>
+      <a
+        mat-tab-link
+        *ngFor="let link of menuLinks"
+        (click)="navigate(link)"
+        [active]="activeLink == link"
+      >
+       {{ link.name }}
+      </a>
+    </nav>
+  </div>
+  <br />
+  <!-- <div class="container">
+    <router-outlet></router-outlet>
+  </div> -->
+</div>

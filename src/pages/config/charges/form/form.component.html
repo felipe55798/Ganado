@@ -1,0 +1,208 @@
+<form [formGroup]="form" class="formulario">
+  <h3 class="title family-barlow" mat-dialog-title>
+    <b>{{ formInsertMode ? "Nuevo " : "" }} Cargo</b>
+  </h3>
+  <mat-dialog-content>
+    <div class="container">
+      <div class="col span2">
+        <div>
+          <mat-label class="txt-label family-word"> Nombre del cargo </mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="name"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['name'].invalid && form.controls['name'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word">
+            Código del cargo
+          </mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="code"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['code'].invalid && form.controls['code'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Visitas por día</mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="visitsperday"
+            matInput
+            type="number"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['visitsperday'].invalid &&
+              form.controls['visitsperday'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+
+      <div class="col span1">
+        <div appearance="outline">
+          <mat-label class="txt-label family-word">
+            Visitas max al día</mat-label
+          >
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="maxvisitsperday"
+            matInput
+            type="number"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['maxvisitsperday'].invalid &&
+              form.controls['maxvisitsperday'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Tiempo en POC</mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="poctime"
+            matInput
+            type="number"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['poctime'].invalid &&
+              form.controls['poctime'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Días laborales semana</mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="daysperweek"
+            matInput
+            type="number"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['daysperweek'].invalid &&
+              form.controls['daysperweek'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+
+      <div class="col span1">
+        <mat-label class="txt-label family-word">Tipo de zona</mat-label>
+          <div  class="rounded family-word">
+            <mat-select formControlName="zonetypeId" [disabled]="formViewMode">
+              <mat-option
+                *ngFor="let zone of zoneTypes"
+                [value]="zone.id"
+                >{{ zone.name }}</mat-option
+              >
+            </mat-select>
+          </div>
+          <!-- <mat-label  class="txt-label family-word">Tipo de zona</mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="zonetypeId"
+            matInput
+            type="number"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['zonetypeId'].invalid &&
+              form.controls['zonetypeId'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error> -->
+      </div>
+    </div>
+    <br><br>
+    <b>Parámetros disponibles para combinación</b>
+    <div class="catalogs">
+      <br />
+      <ng-container
+        *ngFor="let checkbox of catalogsArray; let i = index"
+        formArrayName="catalogs"
+      >
+        <div class="box-check">
+          <br />
+          <mat-checkbox 
+            [color]="'primary'" 
+            [formControlName]="i"
+            class="family-word"
+          >
+            <p>
+              {{ checkbox.name }}
+            </p>
+
+            <p>
+              {{ checkbox.description }}
+            </p>
+          </mat-checkbox>
+          <!-- <br> -->
+        </div>
+        <hr />
+      </ng-container>
+    </div>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="end">
+    <br />
+    <button class="black" mat-button  (click)="closeDialog()">CANCELAR</button>
+    <button mat-raised-button class="bg-black" (click)="save()">CREAR</button>
+  </mat-dialog-actions>
+</form>
+<!-- {{ form.value | json}} -->

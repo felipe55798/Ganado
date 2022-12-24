@@ -1,0 +1,113 @@
+.formulario{
+    padding: 4%;
+    .box {
+      padding: 2%;
+      display: grid;
+      grid-gap: 40px;
+      grid-row-gap: 15px;
+      grid-template-columns: 1fr 1fr;
+    
+    .fields{
+      // border: solid red;
+      line-height: normal;
+      .field{
+        width: 70%;
+        display: block;
+      }
+      .name{
+        font-size: 25px;
+        padding: 7px;
+        font-weight: 500;
+      }
+    }
+
+      .links {
+        .icons {
+          padding: 0 10%;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          a,
+          button {
+            color: black;
+            cursor: pointer;
+          }
+
+       
+        }
+      }
+      .formControl {
+        width: 100%;
+        display: block;
+      }
+      .mat-form-field {
+        width: 100%;
+        display: block;
+      }
+    }
+    .inputs{
+        display: grid;
+        grid-gap: 10px;
+        grid-row-gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+        padding: 0 5%;
+
+        .mat-form-field {
+          width: 100%;
+          display: block;
+        }
+        .col{
+          background: #F0ECFC;
+          border-radius: 8px;
+          padding:5px 11px ;
+        }
+
+    }
+    .combinations{
+        padding:2%;
+        // border: solid red;
+    }
+    .center{
+      display: flex;
+      justify-content: center;
+    }
+}
+
+//letra label
+::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: #000000 !important;
+  font-weight: 600 !important;
+  opacity: 1;
+ }
+//linea inferior al salir del campo
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: #000000  !important;
+  height: 2px !important;
+} 
+//color focus
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: #000000  !important;
+ font-weight: 700 !important;
+}
+::ng-deep .mat-form-field{
+  color: #000000 !important;
+  font-weight: 500;
+  opacity: 1 !important;
+}
+@media screen and (max-width: 960px) {
+    .formulario{
+      .box, .doubles {
+          grid-template-columns: 1fr;
+      }
+      .box{
+        .fields{
+          .field{
+            width: 100%;
+          }
+        }
+      }
+    }
+}

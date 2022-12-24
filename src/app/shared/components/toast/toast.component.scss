@@ -1,0 +1,11 @@
+.toast{
+    padding: 10px;
+    border-radius: 15px;
+    .content{
+        //padding: 10px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 50px;
+    }
+}

@@ -1,0 +1,169 @@
+<form [formGroup]="form" class="formulario">
+  <button
+    mat-mini-fab
+    aria-label="Example icon button with a home icon"
+    class="bg-black"
+    (click)="closeDialog()"
+  >
+    <mat-icon
+      ><span class="material-symbols-outlined"> arrow_back </span></mat-icon
+    >
+  </button>
+  <br /><br />
+  <br />
+  <mat-dialog-content>
+    <div class="container">
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Nombre </mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="name"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['name'].invalid && form.controls['name'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+      <div class="col span1">
+        <label class="txt-label family-word" for="dateOfBirth"
+          >Fecha de cumpleaños</label
+        >
+        <p-calendar
+          formControlName="dateOfBirth"
+          inputId="dateOfBirth"
+          dateFormat="dd/mm/yy"
+        ></p-calendar>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['dateOfBirth'].invalid &&
+            form.controls['dateOfBirth'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Código del chip</mat-label>
+          <input
+            class="rounded"
+            placeholder=""
+            formControlName="chipCode"
+            matInput
+            type="number"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['chipCode'].invalid &&
+              form.controls['chipCode'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+      <div class="col span1">
+        <mat-label class="txt-label family-word">Lotes</mat-label>
+        <div class="rounded family-word">
+          <mat-select formControlName="fkLotes">
+            <mat-option *ngFor="let lote of lotes" [value]="lote.id">{{
+              lote.description
+            }}</mat-option>
+          </mat-select>
+        </div>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['fkLotes'].invalid && form.controls['fkLotes'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+
+      <div class="col span1">
+        <mat-label class="txt-label family-word">Tipos de ganado</mat-label>
+        <div class="rounded family-word">
+          <mat-select formControlName="fkCattleTypes">
+            <mat-option *ngFor="let type of cattleTypes" [value]="type.id">{{
+              type.name
+            }}</mat-option>
+          </mat-select>
+        </div>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['fkCattleTypes'].invalid &&
+            form.controls['fkCattleTypes'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+
+      <div class="col span1">
+        <mat-label class="txt-label family-word">Padre</mat-label>
+        <div class="rounded family-word">
+          <mat-select formControlName="fkCattlesFather">
+            <mat-option
+              *ngFor="let cattle of cattlesFather"
+              [value]="cattle.id"
+              >{{ cattle.name }}</mat-option
+            >
+          </mat-select>
+        </div>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['fkCattlesFather'].invalid &&
+            form.controls['fkCattlesFather'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+
+      <div class="col span1">
+        <mat-label class="txt-label family-word">Madre</mat-label>
+        <div class="rounded family-word">
+          <mat-select formControlName="fkCattlesMother">
+            <mat-option
+              *ngFor="let cattle of cattlesMother"
+              [value]="cattle.id"
+              >{{ cattle.name }}</mat-option
+            >
+          </mat-select>
+        </div>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['fkCattlesMother'].invalid &&
+            form.controls['fkCattlesMother'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <div class="actions">
+    <button class="bg-black btn-primary" (click)="save()">
+      {{ formInsertMode ? "Agregar ganado" : "Editar ganado" }}
+    </button>
+  </div>
+  <!-- {{ form.value | json }} -->
+</form>

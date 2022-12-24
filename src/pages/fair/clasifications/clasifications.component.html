@@ -1,0 +1,12 @@
+<div class="container">
+    <app-list-paginated
+        [pageSize]="10"
+        [list]="clasifications"
+        [totalRecords]="100"
+        (paginate)="getAllClasifications($event)"
+        (add)="createClasification()"
+        (update)="updateClasification($event)"
+        (delete)="deleteClasification($event)"
+    >
+    </app-list-paginated>
+</div>

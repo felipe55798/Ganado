@@ -1,0 +1,12 @@
+<div class="container">
+    <app-list-paginated
+        [pageSize]="10"
+        [list]="breeds"
+        [totalRecords]="100"
+        (paginate)="getAllBreeds($event)"
+        (add)="createBreed()"
+        (update)="updateBreed($event)"
+        (delete)="deleteBreed($event)"
+    >
+    </app-list-paginated>
+</div>

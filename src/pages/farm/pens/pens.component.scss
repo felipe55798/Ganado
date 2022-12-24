@@ -1,0 +1,52 @@
+.container{
+    padding: 3%;
+    width: 60%;
+    margin: auto;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 13px;
+    opacity: 1;
+    position: relative;
+}
+.box-item{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #707070;
+    opacity: 1;
+    padding-top: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+    p{
+        color: #707070;
+        font-size: 1rem;
+    }
+}
+.box-item:hover{
+    background-color: #f1f1f1;
+}
+.mat-icon{
+    cursor: pointer;
+    color: #909394;
+    font-weight: 100;
+}
+
+.icon-add{
+    color: #00AAA8;
+    position: absolute;
+    top: -30px;
+    right: 30px;
+    font-size: 1.9rem;
+    font-weight: bolder;
+    width: auto;
+    height: auto;
+}
+.arrow-top{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+.arrow-bottom{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}

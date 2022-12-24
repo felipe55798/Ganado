@@ -1,0 +1,12 @@
+<div class="container">
+    <app-list-paginated
+        [pageSize]="10"
+        [list]="sponsors"
+        [totalRecords]="100"
+        (paginate)="getAllSponsors($event)"
+        (add)="createSponsor()"
+        (update)="updateSponsor($event)"
+        (delete)="deleteSponsor($event)"
+    >
+    </app-list-paginated>
+</div>

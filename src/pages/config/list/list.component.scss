@@ -1,0 +1,25 @@
+.box-content{
+    h1{
+        font-weight: 400;
+    }
+    padding: 30px 5%;
+}
+.mat-tab-nav-bar{
+    width: 50%;
+    a{
+        color:#000000;
+        font-weight: 500;
+        font-size: 1.1rem,//18px;
+    }
+}
+
+.mat-tab-nav-bar, .mat-tab-header {
+    border-bottom: 0px;
+}
+
+
+@media screen and (max-width: 960px) {
+    .mat-tab-nav-bar{
+        width: 100%;        
+    }
+}

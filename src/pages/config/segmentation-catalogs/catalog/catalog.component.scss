@@ -1,0 +1,85 @@
+.formulario{
+  padding: 5%;
+  .box {
+    padding: 3% 2%;
+    display: grid;
+    grid-gap: 40px;
+    grid-row-gap: 15px;
+    grid-template-columns: 1fr 1fr;
+  
+    .links {
+      .icons {
+        padding: 0 10%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        a,
+        button {
+          color: black;
+          cursor: pointer;
+        }
+      }
+    }
+    .fields{
+      .col{
+        width: 100%;
+        display: block;
+        input,textarea{
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+  }
+  .doubles {
+    display: grid;
+    grid-gap: 20px;
+    grid-row-gap: 15px;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 10px 10% 10px 10px;
+    
+    .value{
+      display: flex;
+      background-color: #F0ECFC;
+      padding:0 20px;
+      border-radius: 7px;
+      align-items: center;
+      gap: 8px;
+    }
+    .mat-form-field {
+      width: 100%;
+      display: block;
+    }
+    .span2{
+        grid-column: span 2;
+        display: flex;
+        gap: 20px;  
+        button {
+          color: black;
+          cursor: pointer;
+        }
+      }
+  }
+  .content-values{
+    padding: 20px;
+  }
+  .btn-addValue{
+    text-align: center;
+  }
+}
+@media screen and (max-width: 960px) {
+  .formulario{
+    .box, .doubles {
+        grid-template-columns: 1fr;
+    }
+    .doubles{
+        padding: 10px;
+        .span2{
+          grid-column: span 1;
+          grid-template-columns: 1fr;
+          display: block;
+          text-align: left;
+        }
+    }
+  }
+}

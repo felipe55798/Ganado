@@ -1,0 +1,58 @@
+<form [formGroup]="form" class="formulario">
+  <div class="toast-container">
+    <app-toast [color]="toast.color" [text]="toast.text" [icon]="toast.icon" [show]="toast.show"></app-toast>
+  </div>
+
+  <div class="upload-card" (dragover)="onDragOver($event)" (drop)="onDropSuccess($event)">
+    <div class="main-container">
+      <div class="content-container">
+        <mat-card-title>
+          <h6 class="title-container">
+            <b>{{ fileName }}</b>
+          </h6>
+          <br />
+          <mat-card-subtitle>
+            <label class="pointer tiny-text">
+              <input (change)="onChange($event)" class="file-container" type="file" [multiple]="false" #fileInput />
+              {{ fileInfo }}<div class="btn-container">
+              </div>
+            </label>
+          </mat-card-subtitle>
+        </mat-card-title>
+      </div>
+
+      <div class="icon-container">
+        <mat-icon class="upload-icon" [ngClass]="selected ? 'hidden': 'visible'" (click)="fileInput.click()">
+          cloud_upload</mat-icon>
+      </div>
+    </div>
+
+    <div class="btn-container">
+      <button class="btn-route" [ngClass]="selected ? 'visible': 'hidden'">Iniciar nuevo Ruteo</button>
+    </div>
+  </div>
+
+</form>
+
+<div class="map-container">
+  <google-map width="100%" height="90vh" [center]="position" [options]="options" [draggable]="true" [zoom]="zoom" (mapClick)="addMarker($event)">
+              <map-marker *ngFor="let marker of markers"
+              [position]="marker.position" [icon]="marker.icon"
+              ></map-marker>
+  </google-map>
+</div>
+
+
+<mat-accordion class="table-container" *ngIf="validated" >
+  <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+    
+    <div class="module-container">
+      <app-table [data]="validatedCustomers" (generatedMarkers)="receiveMarkers($event)" [positions]="positions" [menuItem]="menuItem" *ngIf="menuItem != ''"></app-table>
+    </div>
+
+    <!--Header -->
+    <mat-expansion-panel-header>
+    </mat-expansion-panel-header>
+
+  </mat-expansion-panel>
+</mat-accordion>

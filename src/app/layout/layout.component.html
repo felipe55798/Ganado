@@ -1,0 +1,19 @@
+<mat-sidenav-container fullscreen>
+    <mat-sidenav #sidenav mode="push">
+        <!--Menu lateral-->
+        <app-side-nav [sidenav]="sidenav"></app-side-nav>
+
+    </mat-sidenav>
+    <div class="banner">
+
+        <!--Menu superior-->
+        <app-nav [sidenav]="sidenav">
+        </app-nav>
+    </div>
+
+
+    <div class="container">
+        <router-outlet></router-outlet>
+    </div>
+
+</mat-sidenav-container>

@@ -1,0 +1,233 @@
+<form [formGroup]="form" class="formulario">
+  <button
+    mat-mini-fab
+    aria-label="Example icon button with a home icon"
+    class="bg-black"
+    (click)="closeDialog()"
+  >
+    <mat-icon
+      ><span class="material-symbols-outlined"> arrow_back </span></mat-icon
+    >
+  </button>
+  <mat-dialog-content>
+    <div class="container">
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Nombre </mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="name"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['name'].invalid && form.controls['name'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Tamaño</mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="size"
+            matInput
+            type="number"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['size'].invalid && form.controls['size'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+
+      <div class="col span1">
+        <mat-label class="txt-label family-word">Tipo de pasto</mat-label>
+        <div class="rounded family-word">
+          <mat-select
+            formControlName="fkGrassTypes"
+            (selectionChange)="selectedValue($event)"
+          >
+            <mat-option *ngFor="let type of grassTypes" [value]="type.id">{{
+              type.name
+            }}</mat-option>
+          </mat-select>
+        </div>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['fkGrassTypes'].invalid &&
+            form.controls['fkGrassTypes'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word">Cantidades</mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="quantity"
+            matInput
+            type="number"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['quantity'].invalid &&
+              form.controls['quantity'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word">Lote</mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="lote"
+            matInput
+            type="number"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['lote'].invalid && form.controls['lote'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word">Equipo</mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="team"
+            matInput
+            type="number"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['team'].invalid && form.controls['team'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Ubicación </mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="location"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['location'].invalid &&
+              form.controls['location'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word"> Tipo de lote </mat-label>
+          <input
+            class="rounded family-word"
+            placeholder=""
+            formControlName="loteType"
+            matInput
+            type="text"
+          />
+          <div
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['loteType'].invalid &&
+              form.controls['loteType'].touched
+            "
+          >
+            Campo inválido.
+          </div>
+        </div>
+      </div>
+      <div class="col span1">
+        <mat-label class="txt-label family-word">Tipo de terreno</mat-label>
+        <div class="rounded family-word">
+          <mat-select formControlName="fkLandTypes">
+            <mat-option *ngFor="let type of landTypes" [value]="type.id">{{
+              type.name
+            }}</mat-option>
+          </mat-select>
+        </div>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['fkLandTypes'].invalid &&
+            form.controls['fkLandTypes'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+      <div class="col span1">
+        <mat-label class="txt-label family-word">Grupo</mat-label>
+        <div class="rounded family-word">
+          <mat-select formControlName="fkGroups">
+            <mat-option *ngFor="let type of groups" [value]="type.id">{{
+              type.name
+            }}</mat-option>
+          </mat-select>
+        </div>
+        <div
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['fkGroups'].invalid &&
+            form.controls['fkGroups'].touched
+          "
+        >
+          Campo inválido.
+        </div>
+      </div>
+    </div>
+  </mat-dialog-content>
+
+  <div class="actions">
+    <br />
+    <button class="bg-black btn-primary" (click)="save()">
+      {{formInsertMode ? "Crear corral" : "Editar corral"}}
+    </button>
+  </div>
+  <br />
+  <!-- {{ form.value | json }} -->
+</form>

@@ -1,0 +1,1 @@
+export { INavigator } from './navigator.interface';

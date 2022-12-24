@@ -1,0 +1,154 @@
+<form [formGroup]="form" class="formulario">
+  <div class="container">
+    <div class="col span1">
+      <div>
+        <mat-label class="txt-label family-word"> Nombre </mat-label>
+        <input
+          class="rounded family-word"
+          placeholder=""
+          formControlName="name"
+          matInput
+          type="text"
+        />
+        <div
+          class="txt-label family-word error"
+          *ngIf="form.controls['name'].invalid && form.controls['name'].touched"
+        >
+          Campo inválido.
+        </div>
+      </div>
+    </div>
+
+    <div class="col span1">
+      <div>
+        <mat-label class="txt-label family-word">Latitud</mat-label>
+        <input
+          class="rounded"
+          placeholder=""
+          formControlName="latitude"
+          matInput
+          type="number"
+        />
+        <mat-error
+          class="txt-label family-word error"
+          *ngIf="
+            form.controls['latitude'].invalid &&
+            form.controls['latitude'].touched
+          "
+        >
+          Campo inválido.
+        </mat-error>
+      </div>
+    </div>
+    <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word">Longitud</mat-label>
+          <input
+            class="rounded"
+            placeholder=""
+            formControlName="longitude"
+            matInput
+            type="number"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['longitude'].invalid &&
+              form.controls['longitude'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word">Hectáreas</mat-label>
+          <input
+            class="rounded"
+            placeholder=""
+            formControlName="hectare"
+            matInput
+            type="number"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['hectare'].invalid &&
+              form.controls['hectare'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+      <div class="col span1">
+        <div>
+          <mat-label class="txt-label family-word">Correo electrónico</mat-label>
+          <input
+            class="rounded"
+            placeholder=""
+            formControlName="email"
+            matInput
+            type="email"
+            min="0"
+          />
+          <mat-error
+            class="txt-label family-word error"
+            *ngIf="
+              form.controls['email'].invalid &&
+              form.controls['email'].touched
+            "
+          >
+            Campo inválido.
+          </mat-error>
+        </div>
+      </div>
+    <div class="col span1">
+      <mat-label class="txt-label family-word">Tiempo</mat-label>
+      <div class="rounded family-word">
+        <mat-select formControlName="fkWeathers">
+          <mat-option *ngFor="let register of weathers" [value]="register.id">{{
+            register.name
+          }}</mat-option>
+        </mat-select>
+      </div>
+      <div
+        class="txt-label family-word error"
+        *ngIf="
+          form.controls['fkWeathers'].invalid && form.controls['fkWeathers'].touched
+        "
+      >
+        Campo inválido.
+      </div>
+    </div>
+
+    <!-- <div class="col span1">
+      <mat-label class="txt-label family-word">Persona</mat-label>
+      <div class="rounded family-word">
+        <mat-select formControlName="fkThirds">
+          <mat-option
+            *ngFor="let third of thirds"
+            [value]="third.id"
+            >{{ third.name }}</mat-option
+          >
+        </mat-select>
+      </div>
+      <div
+        class="txt-label family-word error"
+        *ngIf="
+          form.controls['fkThirds'].invalid &&
+          form.controls['fkThirds'].touched
+        "
+      >
+        Campo inválido.
+      </div>
+    </div> -->
+  </div>
+  <br><br>
+  <button class="bg-black btn-primary family-word" (click)="updateFarm()">
+    {{ "Guardar"}}
+  </button>
+</form>
+<!-- {{form.value | json}} -->

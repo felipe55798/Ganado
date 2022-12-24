@@ -1,0 +1,41 @@
+<div class="modal">
+  <div class="header">
+    <!-- <div class="title">
+      {{ data.title }}
+    </div> -->
+    <div class="close">
+      <button
+      mat-mini-fab
+      aria-label="Example icon button with a home icon"
+      class="bg-black"
+      mat-dialog-close
+      (click)="cancelar()"
+    >
+      <mat-icon
+        ><span class="material-symbols-outlined"> arrow_back </span></mat-icon
+      >
+    </button>
+    </div>
+  </div>
+  <div class="body">
+    <div class="content-body" [innerHTML]="data.content"></div>
+  </div>
+  <div class="actions">
+    <button
+      mat-stroked-button
+      class="bg-black"
+      (click)="cancelar()"
+      mat-dialog-close
+    >
+      {{ data?.actions?.secondary ? data?.actions?.secondary : "Cancelar" }}
+    </button>
+    <button
+      mat-raised-button
+      (click)="aceptar()"
+      mat-dialog-close
+      class="bg-black"
+    >
+      {{ data?.actions?.primary ? data?.actions?.primary : "Eliminar" }}
+    </button>
+  </div>
+</div>

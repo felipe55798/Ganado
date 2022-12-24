@@ -1,0 +1,174 @@
+@use "variables";
+:root {
+    background: transparent 0% 0% no-repeat padding-box;
+    --gray-dark: #828282;
+    --primary: #00b8d1;
+    --font-family-primary: 'Comfortaa';
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    border-radius: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    background-color: #00B8D1;
+    background-image: url(assets/img/background.png);
+    background-position: 0px;
+    height: 100%;
+    margin: 0;
+    font-family: 'Comfortaa';
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    // font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif !important;
+    font-family: 'Comfortaa';
+}
+
+body,
+a,
+mat-tab-link {
+    font-family: 'Comfortaa';
+}
+
+.family-word {
+    font-family: 'Comfortaa';
+}
+
+.family-barlow {
+    font-family: 'Comfortaa';
+}
+
+.disabled-border {
+    font-family: 'Comfortaa';
+}
+
+.disabled-text {
+    color: rgba(0, 0, 0, 0.479) !important;
+}
+
+button {
+    color: #000000;
+    cursor: pointer;
+}
+
+.bg-black {
+    background-color: #00AAA8 !important;
+    color: #ffffff;
+}
+
+//Linea inferior del tab selñeccionado
+mat-ink-bar {
+    background-color: var(--primary) !important;
+    height: 1px !important;
+}
+
+.mat-tab-link {
+    color: #000000 !important;
+    opacity: 1 !important;
+    font-weight: 500;
+}
+
+//Background body
+.mat-drawer-container {
+    background-color: #ffffff;
+}
+
+//Styles standards for inputs
+.rounded {
+    // border: 1px solid #000000 !important;
+    box-sizing: border-box;
+    border: 1px solid #707070;
+    border-radius: 13px;
+    opacity: 1;
+    min-height: 38px;
+    max-height: auto;
+    padding: 3px !important;
+}
+
+.txt-label {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+}
+
+.error {
+    color: rgb(253, 26, 18);
+}
+
+//Para enlace subrayado con imagen
+.link {
+    cursor: pointer;
+    display: inline-block;
+    align-items: center;
+    text-decoration: underline;
+    padding: auto;
+    img {
+        margin: auto;
+    }
+    span {
+        display: flex;
+        align-items: center;
+        color: #000000;
+        margin: auto;
+        font-weight: 600;
+        font-size: 14px;
+    }
+}
+
+.red-snackbar {
+    background: #f33a21;
+    color: #ffffff;
+    button {
+        color: #ffffff !important;
+    }
+}
+
+.default-snackbar {
+    background: #323232;
+}
+
+.mat-toolbar-row,
+.mat-toolbar-single-row {
+    background: transparent !important;
+}
+
+.btn-primary{
+    padding: 11px;
+    display: flex;
+    margin: auto;
+    width: 30%;
+    justify-content: center;
+    font-size: 1rem;
+    box-shadow: 2px 6px 6px #0000005E;
+    border-radius: 11px;
+    border: none;
+    opacity: 1;
+    font-family: 'Comfortaa';
+}
